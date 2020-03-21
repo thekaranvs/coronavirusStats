@@ -12,7 +12,7 @@ class Coronavirus():
         try:
             self.driver.get('https://www.worldometers.info/coronavirus/')
             table = self.driver.find_element_by_xpath('//*[@id="main_table_countries"]/tbody[1]')
-            country_element = table.find_element_by_xpath("//td[contains(text(), 'China')]")
+            country_element = table.find_element_by_xpath("//td[contains(text(), 'India')]")
             row = country_element.find_element_by_xpath("./..")
             data = row.text.split(" ")
             total_cases = data[1]
@@ -46,7 +46,7 @@ class Coronavirus():
             self.driver.quit()
 
 def send_mail(country_element, total_cases, new_cases, total_deaths, new_deaths, active_cases, total_recovered, serious_critical):
-    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server = smtplib.SMTP('fatvorior@gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.ehlo()
